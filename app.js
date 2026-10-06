@@ -507,71 +507,14 @@
   $('#btn-questions').onclick = () => { confetti(); say('Thank you! Ask me anything.', 'happy'); };
   hooks.takeaway = () => setTimeout(confetti, 900);
 
-  /* ---------- Slide 10: Feedback modal ---------- */
-  const fbBtn = $('#btn-feedback'), fbOv = $('#feedback-ov');
-  if (fbBtn && fbOv) {
-    const fbClose = $('#fb-close'), fbCloseDot = $('#fb-close-dot');
-    const fbSubmit = $('#fb-submit'), fbRatings = $$('.fb-star'), fbTopics = $$('.fb-topics .chip');
-    const fbComments = $('#fb-comments'), fbStatus = $('#fb-status');
-    let selectedRating = 5;
-
-    const openFb = () => {
-      fbOv.classList.add('on');
-      say('Glad you came! Tell us what worked best in the session.', 'happy');
-    };
-    const closeFb = () => { fbOv.classList.remove('on'); };
-
-    fbBtn.addEventListener('click', openFb);
-    if (fbClose) fbClose.addEventListener('click', closeFb);
-    if (fbCloseDot) fbCloseDot.addEventListener('click', closeFb);
-    fbOv.addEventListener('click', (e) => { if (e.target === fbOv) closeFb(); });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && fbOv.classList.contains('on')) closeFb(); });
-
-    // Rating star toggle
-    fbRatings.forEach(btn => {
-      btn.addEventListener('click', () => {
-        fbRatings.forEach(b => b.classList.remove('on'));
-        btn.classList.add('on');
-        selectedRating = parseInt(btn.dataset.rate) || 5;
-      });
+  /* ---------- Slide 10: Feedback button ---------- */
+  const fbBtn = $('#btn-feedback');
+  if (fbBtn) {
+    fbBtn.addEventListener('click', () => {
+      confetti();
+      toast('Opening Feedback Form', 'Thank you for attending & rating our presentation!', 'green');
+      say('Opening the feedback form! Thank you so much for your feedback.', 'happy');
     });
-
-    // Topic chips toggle
-    fbTopics.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chip.classList.toggle('on');
-      });
-    });
-
-    // Submit handler
-    if (fbSubmit) {
-      fbSubmit.addEventListener('click', () => {
-        const topics = Array.from($$('.fb-topics .chip.on')).map(c => c.dataset.tag || c.textContent.trim());
-        const comments = fbComments ? fbComments.value.trim() : '';
-        const entry = {
-          rating: selectedRating,
-          topics,
-          comments,
-          time: new Date().toISOString()
-        };
-        try {
-          const list = JSON.parse(localStorage.getItem('sprm_feedbacks') || '[]');
-          list.push(entry);
-          localStorage.setItem('sprm_feedbacks', JSON.stringify(list));
-        } catch (e) {}
-
-        confetti();
-        toast('Feedback Recorded', `Rated ${selectedRating}/5 stars. Thank you!`, 'green');
-        say('Awesome! Feedback saved. Thanks for rating the session!', 'happy');
-        if (fbStatus) fbStatus.textContent = 'Submitted successfully!';
-
-        setTimeout(() => {
-          closeFb();
-          if (fbStatus) fbStatus.textContent = 'Saves to responses';
-          if (fbComments) fbComments.value = '';
-        }, 1200);
-      });
-    }
   }
 
   /* ---------- boot ---------- */
