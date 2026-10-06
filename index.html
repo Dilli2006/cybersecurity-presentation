@@ -793,6 +793,12 @@
           </div>
           <div class="sources">Sources: FTC (Equifax settlement, 2019) · US Senate testimony, J. Blount (Colonial, June
             2021) · Uber security update (Sept 2022) · Govt. of India / MeitY statements (AIIMS, Dec 2022)</div>
+          <div class="feedback-cta-wrap rise" style="--d:9">
+            <button class="btn yellow magnet" id="btn-feedback"
+              style="font-size:18px;padding:12px 30px;display:inline-flex;align-items:center;gap:10px;box-shadow:4px 4px 0 var(--ink);font-weight:900">
+              <span class="material-symbols-rounded" style="font-size:22px">rate_review</span> Feedback Form
+            </button>
+          </div>
         </div>
       </section>
 
@@ -840,6 +846,48 @@
     <div class="cmdk"><input id="cmdk-in" placeholder="Jump to slide… (type to filter)">
       <ul id="cmdk-list"></ul>
       <div class="foot"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
+    </div>
+  </div>
+  <div class="feedback-ov" id="feedback-ov">
+    <div class="feedback-modal box white shadow">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--ink);padding-bottom:12px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="dots"><span class="dot r" id="fb-close-dot" style="cursor:pointer" title="Close"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <span class="kicker" style="margin-left:6px">Audience Feedback</span>
+        </div>
+        <button class="btn sm ghost" id="fb-close" style="padding:4px 10px;font-size:14px;cursor:pointer">✕</button>
+      </div>
+
+      <div class="h3" style="margin:0 0 4px">Security & Risk Seminar Feedback</div>
+      <div class="small" style="color:var(--muted);margin-bottom:14px">Share quick feedback or questions for the presenter.</div>
+
+      <div style="font:800 12px var(--mono);text-transform:uppercase;margin-bottom:8px">1. How was the session?</div>
+      <div class="fb-ratings" id="fb-ratings">
+        <button type="button" class="fb-star" data-rate="1">1 · Fair</button>
+        <button type="button" class="fb-star" data-rate="2">2 · Good</button>
+        <button type="button" class="fb-star" data-rate="3">3 · Strong</button>
+        <button type="button" class="fb-star" data-rate="4">4 · Great</button>
+        <button type="button" class="fb-star on" data-rate="5">5 · Outstanding ⭐</button>
+      </div>
+
+      <div style="font:800 12px var(--mono);text-transform:uppercase;margin:14px 0 8px">2. Which topic was most useful?</div>
+      <div class="fb-topics" id="fb-topics">
+        <span class="chip on" data-tag="Venn Risk Equation">Venn Risk Equation</span>
+        <span class="chip" data-tag="Colonial Attack Path">Colonial Pipeline</span>
+        <span class="chip" data-tag="Uber MFA Fatigue">Uber MFA Demo</span>
+        <span class="chip" data-tag="Password Auditor">Password Auditor</span>
+        <span class="chip" data-tag="3D Risk Matrix">3D Risk Matrix</span>
+      </div>
+
+      <div style="font:800 12px var(--mono);text-transform:uppercase;margin:14px 0 8px">3. Comments / Questions for Presenter:</div>
+      <textarea id="fb-comments" rows="3" class="pw-input" style="font-size:14px;font-family:inherit;padding:10px 12px;resize:none;margin-bottom:16px;width:100%" placeholder="Write any feedback or suggestions here…"></textarea>
+
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span class="small" id="fb-status" style="font:700 11px var(--mono);color:var(--muted)">Saves to responses</span>
+        <button class="btn green magnet" id="fb-submit" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px">
+          <span class="material-symbols-rounded" style="font-size:20px">send</span> Submit Feedback
+        </button>
+      </div>
     </div>
   </div>
   <aside class="notes" id="notes">
