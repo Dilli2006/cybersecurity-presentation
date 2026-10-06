@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Security Policy & Risk Management — Live Interactive Seminar</title>
+  <meta name="description"
+    content="Interactive cybersecurity seminar: from policy violation to risk reduction. Real breaches (Colonial Pipeline, Uber, Equifax, AIIMS), live password and port audits, and a 3D risk matrix.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..700,0..1,-50..200" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="blk b1"></div>
+    <div class="blk b2"></div>
+    <div class="blk b3"></div>
+    <div class="blk b4"></div>
+  </div>
+
+  <main id="stage">
+    <div class="deck" id="deck">
+      <div class="topline"><i></i></div>
+
+      <!-- ============ 01 · TITLE ============ -->
+      <section class="slide active" data-title="Security Policy and Risk Management" data-icon="lock"
+        data-footer="What a security policy is meant to do · what happens when it isn't enforced · how to measure the risk that's left."
+        data-say="Hey, I'm <b>Patch</b>. Policy is only step one — today we <span class='hl'>TEST IT</span>. Try clicking the lock!"
+        data-mood="happy"
+        data-notes="Open strong: 'Every company in this deck HAD a security policy. They still got breached.'&#10;&#10;Today: what a policy is meant to do → 4 real breaches → 2 live demos → a working risk score.&#10;&#10;Click the 3D lock to show 'locked ≠ verified'.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Security Policy and Risk Management</div>
+          <div class="hud"><span class="sd"></span>LIVE SECURITY BRIEF</div>
+        </div>
+        <div class="inner hero">
+          <div class="hero-left">
+            <div class="hero-badge rise"><span class="live-dot"></span>CYBERSECURITY SEMINAR · ENGINEERING</div>
+            <h1 class="mega" data-split>From Policy|Violation|to Risk|Reduction</h1>
+            <div class="subtitle rise" style="--d:6"><span data-decrypt>Foundations · real breaches · live demos · a
+                working risk score</span></div>
+            <div class="hero-actions rise" style="--d:7">
+              <button class="btn dark magnet" data-goto="1" id="btn-start">Start briefing →</button>
+              <button class="btn ghost magnet" data-goto="6" id="btn-jump-demo"><span class="material-symbols-rounded"
+                  style="font-size:18px">bolt</span> Jump to live demo</button>
+            </div>
+            <div class="meta rise" style="--d:8"><kbd>→</kbd> next &nbsp; <kbd>Ctrl K</kbd> jump &nbsp; <kbd>N</kbd>
+              notes &nbsp; <kbd>F</kbd> fullscreen</div>
+          </div>
+          <div class="hero-right">
+            <div class="fallback"><span class="material-symbols-rounded"
+                style="font-size:130px;color:var(--ink)">lock</span></div>
+            <div class="three-host" id="hero3d" title="Click the lock"></div>
+            <div class="sticky" style="left:28px;top:30px">CLICK<br>THE<br>LOCK ↘</div>
+            <span class="chip float-chip" style="right:26px;top:36px"><i></i>MFA · ENFORCED</span>
+            <span class="chip bad float-chip" style="right:60px;top:300px;animation-delay:-2s"><i></i>PATCH ·
+              OVERDUE</span>
+            <span class="chip warn float-chip" style="left:40px;top:360px;animation-delay:-1s"><i></i>VPN ·
+              LEGACY</span>
+            <div class="blockrow">
+              <div style="background:var(--orange)">□</div>
+              <div style="background:var(--lilac)">▦</div>
+              <div style="background:var(--green)">↗</div>
+              <div style="background:var(--red);color:#fff">!</div>
+            </div>
+          </div>
+        </div>
+        <div class="marquee">
+          <div class="track">
+            <span><b>✦</b> COLONIAL PIPELINE · 2021 · LEGACY VPN, NO MFA</span><span><b>✦</b> UBER · 2022 · MFA
+              FATIGUE</span><span><b>✦</b> EQUIFAX · 2017 · MISSED PATCH · 147M PEOPLE</span><span><b>✦</b> AIIMS DELHI
+              · 2022 · RANSOMWARE · ~2 WEEKS MANUAL</span><span><b>✦</b> RISK = LIKELIHOOD × IMPACT</span>
+            <span><b>✦</b> COLONIAL PIPELINE · 2021 · LEGACY VPN, NO MFA</span><span><b>✦</b> UBER · 2022 · MFA
+              FATIGUE</span><span><b>✦</b> EQUIFAX · 2017 · MISSED PATCH · 147M PEOPLE</span><span><b>✦</b> AIIMS DELHI
+              · 2022 · RANSOMWARE · ~2 WEEKS MANUAL</span><span><b>✦</b> RISK = LIKELIHOOD × IMPACT</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 02 · RULE BEFORE CONTROL ============ -->
+      <section class="slide" data-title="The Rule Before the Control" data-icon="shield"
+        data-footer="CIA Triad: confidentiality · integrity · availability — a policy sets the standard; enforcement makes it real."
+        data-say="Check the C, I, A cards. Then flip through the tabs — every rule needs <b>evidence</b>."
+        data-mood="idle"
+        data-notes="A policy = formal, high-level statement of requirements and responsibilities.&#10;&#10;It's the bridge between business goals and technical controls.&#10;&#10;Hover each CIA card. Then the tabs: Policy → Control → Evidence. The killer question an auditor asks: 'Show me the evidence.'">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">The Rule Before the Control</div>
+          <div class="hud"><span class="sd"></span>POLICY STATUS · ACTIVE</div>
+        </div>
+        <div class="inner s2">
+          <div>
+            <div class="kicker rise">01 · Foundations</div>
+            <div class="h2 rise" style="--d:1">A policy is a promise.<br><span class="hl">Controls</span> keep it.</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+              <div class="box blue tilt spot rise" style="--d:2">
+                <div class="kicker">Policy definition</div>
+                <div class="rule"></div>
+                <div class="small"><b>Formal, high-level statement</b> of security requirements and who is responsible.
+                </div>
+              </div>
+              <div class="box white tilt spot rise" style="--d:3">
+                <div class="kicker">The bridge</div>
+                <div class="rule"></div>
+                <div class="small">Connects <b>business objectives</b> to technical controls and consistent standards.
+                </div>
+              </div>
+            </div>
+            <div class="flip-row">
+              <div class="flip rise" style="--d:4" id="flip-c">
+                <div class="fi">
+                  <div class="face" style="background:var(--violet);color:#fff">
+                    <div class="kicker" style="color:#fff">Confidentiality</div>
+                    <div class="letter">C</div>
+                  </div>
+                  <div class="face back">
+                    <div class="kicker">Confidentiality</div>
+                    <div class="rule"></div>
+                    <div class="small">Only <b>authorized</b> people see the data.</div>
+                    <div class="small" style="margin-top:auto"><b>Breaks when:</b> Stolen Creds, Open S3 Bucket, Leaked
+                      DB.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flip rise" style="--d:5" id="flip-i">
+                <div class="fi">
+                  <div class="face" style="background:var(--orange)">
+                    <div class="kicker">Integrity</div>
+                    <div class="letter">I</div>
+                  </div>
+                  <div class="face back">
+                    <div class="kicker">Integrity</div>
+                    <div class="rule"></div>
+                    <div class="small">Data stays <b>accurate</b> and unaltered.</div>
+                    <div class="small" style="margin-top:auto"><b>Breaks when:</b> Tampered Records, Malicious Updates.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flip rise" style="--d:6" id="flip-a">
+                <div class="fi">
+                  <div class="face" style="background:var(--green)">
+                    <div class="kicker">Availability</div>
+                    <div class="letter">A</div>
+                  </div>
+                  <div class="face back">
+                    <div class="kicker">Availability</div>
+                    <div class="rule"></div>
+                    <div class="small">Systems work <b>when needed</b>.</div>
+                    <div class="small" style="margin-top:auto"><b>Breaks when:</b> Ransomware, DDoS, No Backups.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tabs rise" style="--d:3" data-tabs>
+            <div class="tablist"><span class="tab-ind"></span>
+              <button class="on" data-tab="0" id="tab-patch"><span class="material-symbols-rounded"
+                  style="font-size:18px">healing</span> Patching</button>
+              <button data-tab="1" id="tab-mfa"><span class="material-symbols-rounded"
+                  style="font-size:18px">security</span> MFA</button>
+              <button data-tab="2" id="tab-svc"><span class="material-symbols-rounded" style="font-size:18px">lan</span>
+                Services</button>
+            </div>
+            <div class="panel on" data-panel="0">
+              <div class="kicker">Policy → Control → Evidence</div>
+              <div class="pce"><b>POLICY</b><span>Critical systems must be patched within 48 hours.</span></div>
+              <div class="down-arrow">↓</div>
+              <div class="pce c"><b>CONTROL</b><span>Automated patch management + vulnerability scanning.</span></div>
+              <div class="down-arrow">↓</div>
+              <div class="pce e"><b>EVIDENCE</b><span>Patch compliance report showing 100% of internet-facing
+                  servers.</span></div>
+              <div class="box green" style="margin-top:auto;font-weight:900">Equifax had the policy. They didn't have
+                the evidence. → slide 6</div>
+            </div>
+            <div class="panel" data-panel="1">
+              <div class="kicker">Policy → Control → Evidence</div>
+              <div class="pce"><b>POLICY</b><span>All remote and privileged access requires MFA.</span></div>
+              <div class="down-arrow">↓</div>
+              <div class="pce c"><b>CONTROL</b><span>SSO with number-matching MFA; legacy VPN profiles disabled.</span>
+              </div>
+              <div class="down-arrow">↓</div>
+              <div class="pce e"><b>EVIDENCE</b><span>Auth logs: zero single-factor logins in the last 30 days.</span>
+              </div>
+              <div class="box orange" style="margin-top:auto;font-weight:900">Colonial missed one VPN account. Uber's
+                MFA got spammed. → slides 4–5</div>
+            </div>
+            <div class="panel" data-panel="2">
+              <div class="kicker">Policy → Control → Evidence</div>
+              <div class="pce"><b>POLICY</b><span>Only approved services may listen on the network.</span></div>
+              <div class="down-arrow">↓</div>
+              <div class="pce c"><b>CONTROL</b><span>Host firewall + service hardening baseline.</span></div>
+              <div class="down-arrow">↓</div>
+              <div class="pce e"><b>EVIDENCE</b><span>Port scan matches the approved list. No wildcard listeners.</span>
+              </div>
+              <div class="box blue" style="margin-top:auto;font-weight:900">We'll check this live on my own laptop. →
+                slide 8</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 · EQUATION ============ -->
+      <section class="slide" data-title="The Equation Behind Every Finding" data-icon="schema" data-hook="venn"
+        data-footer="A practical risk register starts with assets, threats, weaknesses, likelihood, and impact."
+        data-say="Click any circle or toggle button below! When all three collide, we trigger <b>RISK</b>."
+        data-mood="idle"
+        data-notes="Asset = anything of value. Threat = potential cause of harm. Vulnerability = a weakness a threat can exploit.&#10;&#10;Toggle them live: no asset → nothing to lose. No threat → nobody to exploit. No vuln → no way in. All three → RISK.&#10;&#10;Then: Risk = Likelihood × Impact. Student portal, no MFA: 4 × 5 = 20.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">The Equation Behind Every Finding</div>
+          <div class="hud"><span class="sd o"></span>RISK MODEL · READY</div>
+        </div>
+        <div class="inner s3">
+          <div class="s3-left rise">
+            <div class="venn-wrap">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <div class="kicker">Interactive Venn Diagram</div>
+                <span class="chip" style="font-size:10px;padding:3px 7px"><span class="material-symbols-rounded"
+                    style="font-size:14px;margin-right:3px">touch_app</span> Click circles or cards</span>
+              </div>
+              <svg class="venn" id="venn" viewBox="0 0 420 310">
+                <g class="v-group" data-k="asset" id="vg-asset">
+                  <circle class="c off" id="vc-asset" cx="155" cy="125" r="95" fill="#6fa7ff" />
+                  <text x="110" y="100">ASSET</text>
+                </g>
+                <g class="v-group" data-k="threat" id="vg-threat">
+                  <circle class="c off" id="vc-threat" cx="265" cy="125" r="95" fill="#ffb83f" />
+                  <text x="310" y="100">THREAT</text>
+                </g>
+                <g class="v-group" data-k="vuln" id="vg-vuln">
+                  <circle class="c off" id="vc-vuln" cx="210" cy="205" r="95" fill="#ff4f62" />
+                  <text x="210" y="275">VULNERABILITY</text>
+                </g>
+                <g class="risk-core">
+                  <rect x="155" y="125" width="110" height="44" rx="6" fill="#20221e" stroke="#20221e" /><text x="210"
+                    y="154" style="fill:#ffe77c;font-size:24px;font-weight:900">RISK</text>
+                </g>
+              </svg>
+            </div>
+            <div class="toggles">
+              <button class="tgl" data-k="asset" aria-pressed="false" id="tgl-asset">
+                <span class="material-symbols-rounded" style="font-size:18px">database</span> 01 · Asset
+              </button>
+              <button class="tgl" data-k="threat" aria-pressed="false" id="tgl-threat">
+                <span class="material-symbols-rounded" style="font-size:18px">warning</span> 02 · Threat
+              </button>
+              <button class="tgl" data-k="vuln" aria-pressed="false" id="tgl-vuln">
+                <span class="material-symbols-rounded" style="font-size:18px">bug_report</span> 03 · Vulnerability
+              </button>
+            </div>
+          </div>
+          <div class="s3-right">
+            <div class="eq-cards">
+              <div class="box white tilt spot rise eq-card" data-k="asset" style="--d:1" title="Click to toggle Asset">
+                <div class="num">01</div>
+                <div class="h3">Asset</div>
+                <div class="small">Data, systems, IP, reputation.</div>
+                <div class="chip" style="margin-top:8px;font-size:10px"><i></i><span class="card-status">OFF</span>
+                </div>
+              </div>
+              <div class="box white tilt spot rise eq-card" data-k="threat" style="--d:2"
+                title="Click to toggle Threat">
+                <div class="num">02</div>
+                <div class="h3">Threat</div>
+                <div class="small">Attacker, malware, insider, disaster.</div>
+                <div class="chip" style="margin-top:8px;font-size:10px"><i></i><span class="card-status">OFF</span>
+                </div>
+              </div>
+              <div class="box white tilt spot rise eq-card" data-k="vuln" style="--d:3"
+                title="Click to toggle Vulnerability">
+                <div class="num">03</div>
+                <div class="h3">Vulnerability</div>
+                <div class="small">Unpatched software, weak controls, no MFA.</div>
+                <div class="chip" style="margin-top:8px;font-size:10px"><i></i><span class="card-status">OFF</span>
+                </div>
+              </div>
+            </div>
+            <div class="box red shadow rise s3-formula" style="--d:4">
+              <div class="num">04</div>
+              <div class="formula">RISK = LIKELIHOOD <span class="x">×</span> IMPACT</div>
+              <div class="calc-row">Student portal · weak password · no MFA →
+                <span class="n">4</span>×<span class="n">5</span>=<span class="n"
+                  style="background:var(--ink);color:var(--yellow)" data-count="20">0</span>
+                <span class="stamp bad" style="background:var(--yellow);color:var(--ink)">HIGH</span>
+              </div>
+            </div>
+            <div class="quote rise s3-quote" style="--d:5">A finding matters when exposure is credible and impact is meaningful.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 · COLONIAL ============ -->
+      <section class="slide" data-title="Colonial Pipeline (2021): One Old Password. No MFA."
+        data-icon="local_gas_station" data-hook="colonial"
+        data-footer="Controls have to cover the access paths people forgot about."
+        data-say="Hit <b>Run attack path</b>. Watch one forgotten VPN account stop fuel for the US East Coast."
+        data-mood="alarmed"
+        data-notes="May 2021. DarkSide ransomware.&#10;&#10;Entry: a legacy VPN account no longer in use, single-factor only. Password found in a leaked credential batch.&#10;&#10;Result: first full shutdown in company history (~6 days), ~5,500-mile pipeline, $4.4M ransom paid.&#10;&#10;Lesson: decommission unused accounts; MFA on EVERY remote path.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Colonial Pipeline (2021): One Old Password. No MFA.</div>
+          <div class="hud"><span class="sd r"></span>INCIDENT · HIGH IMPACT</div>
+        </div>
+        <div class="inner s4">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="kicker rise">Case study 01 · step through the breach</div>
+            <div class="stepper" id="col-steps">
+              <div class="step rise" style="--d:1"><span class="sn">01</span>
+                <div>
+                  <h4>Legacy VPN account</h4>
+                  <p>Account no longer in active use — never decommissioned.</p>
+                </div>
+              </div>
+              <div class="step rise" style="--d:2"><span class="sn">02</span>
+                <div>
+                  <h4>No MFA</h4>
+                  <p>Password alone was enough to get through the gateway.</p>
+                </div>
+              </div>
+              <div class="step rise" style="--d:3"><span class="sn">03</span>
+                <div>
+                  <h4>Leaked credential</h4>
+                  <p>The password appeared in a batch of stolen credentials.</p>
+                </div>
+              </div>
+              <div class="step rise" style="--d:4"><span class="sn">04</span>
+                <div>
+                  <h4>Operational shutdown</h4>
+                  <p>First full shutdown in company history; $4.4M ransom paid.</p>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px" class="rise" style="--d:5">
+              <button class="btn red magnet" id="col-run" style="display:inline-flex;align-items:center;gap:6px"><span
+                  class="material-symbols-rounded" style="font-size:18px">play_arrow</span> Run attack path</button>
+              <button class="btn ghost sm" id="col-reset" style="display:inline-flex;align-items:center;gap:4px"><span
+                  class="material-symbols-rounded" style="font-size:16px">refresh</span> Reset</button>
+            </div>
+          </div>
+          <div class="pipe-panel">
+            <div class="box orange shadow rise" style="--d:2;padding:16px" id="col-panel">
+              <div class="kicker">The breach path · live</div>
+              <span class="stamp pipe-status" id="col-status">FUEL FLOWING</span>
+              <svg class="pipe-svg" viewBox="0 0 700 210" style="margin-top:12px">
+                <path d="M20 150 H170 V60 H360 V150 H520 V80 H680" fill="none" stroke="#20221e" stroke-width="26"
+                  stroke-linejoin="round" />
+                <path d="M20 150 H170 V60 H360 V150 H520 V80 H680" fill="none" stroke="#f3f0df" stroke-width="16"
+                  stroke-linejoin="round" />
+                <path class="pipe-flow" d="M20 150 H170 V60 H360 V150 H520 V80 H680" fill="none" stroke="#6fa7ff"
+                  stroke-width="10" stroke-linejoin="round" />
+                <g stroke="#20221e" stroke-width="4">
+                  <rect class="tank" x="140" y="120" width="60" height="60" fill="#45db9b" />
+                  <rect class="tank" x="330" y="30" width="60" height="60" fill="#45db9b" />
+                  <rect class="tank" x="490" y="120" width="60" height="60" fill="#45db9b" />
+                </g>
+                <g font-family="JetBrains Mono" font-weight="800" font-size="13" fill="#20221e"><text x="20"
+                    y="196">HOUSTON, TX</text><text x="580" y="60">NEW YORK HARBOR</text></g>
+              </svg>
+            </div>
+            <div class="stats">
+              <div class="stat rise" style="--d:3">
+                <div class="v" data-count="5500" data-suf=" mi">0</div>
+                <div class="l">Pipeline length</div>
+              </div>
+              <div class="stat rise" style="--d:4">
+                <div class="v" data-count="6" data-suf=" days">0</div>
+                <div class="l">Full shutdown</div>
+              </div>
+              <div class="stat rise" style="--d:5" style="background:var(--red)">
+                <div class="v" data-count="4.4" data-dec="1" data-pre="$" data-suf="M">0</div>
+                <div class="l">Ransom paid</div>
+              </div>
+            </div>
+            <div class="quote rise" style="--d:6">Lesson: decommission unused accounts and require MFA on every remote
+              access path.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 · UBER ============ -->
+      <section class="slide" data-title="Uber (2022): MFA Was On. It Still Failed." data-icon="smartphone"
+        data-hook="uber"
+        data-footer="A control can be present and still be weak against the way people actually behave."
+        data-say="Start the spam. Now imagine it's 1 AM and 'IT support' is texting you…" data-mood="idle"
+        data-notes="Sept 2022. Attacker likely bought a contractor's password on the dark web.&#10;&#10;MFA was ON — so they spammed push requests for over an hour, then messaged on WhatsApp pretending to be Uber IT. The contractor approved one.&#10;&#10;DEMO: Start spam → wait for WhatsApp message → click Approve.&#10;&#10;Fixes: number matching, push rate limits, FIDO2 keys, report-suspicious-prompt button.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Uber (2022): MFA Was On. It Still Failed.</div>
+          <div class="hud"><span class="sd o"></span>HUMAN FACTOR · ACTIVE</div>
+        </div>
+        <div class="inner s5">
+          <div class="box violet shadow phone-zone rise">
+            <div class="phone" id="phone">
+              <div class="screen">
+                <div class="notch"></div>
+                <div class="lock-time">01:12</div>
+                <div class="lock-date">FRIDAY · SEPTEMBER 2022</div>
+                <div class="spam-count" id="spam-count">0 PUSH REQUESTS</div>
+                <div class="notifs" id="notifs"></div>
+                <div class="breached" id="breached"><span class="material-symbols-rounded"
+                    style="font-size:56px;color:#fff">gpp_bad</span>
+                  <div class="big">ACCESS GRANTED<br>TO ATTACKER</div>
+                  <div style="font:700 11px var(--mono);margin-top:10px">VPN → internal tools → Slack, AWS, G-Suite
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div class="kicker">Simulator · MFA fatigue</div>
+              <div class="h2" style="color:#fff">Attacker spams push requests</div>
+              <div style="font-weight:900;font-stretch:65%;font-size:96px;line-height:.8" id="spam-big">×0</div>
+              <button class="btn orange magnet" id="uber-start"
+                style="display:inline-flex;align-items:center;gap:6px"><span class="material-symbols-rounded"
+                  style="font-size:18px">play_arrow</span> Start MFA spam</button>
+              <button class="btn ghost sm" id="uber-reset" style="display:inline-flex;align-items:center;gap:4px"><span
+                  class="material-symbols-rounded" style="font-size:16px">refresh</span> Reset</button>
+              <div style="font:700 12px var(--mono);opacity:.85">Tip: wait for the WhatsApp message, then tap
+                <b>Approve</b>.</div>
+            </div>
+          </div>
+          <div class="side-ctrl">
+            <div class="box white rise" style="--d:2">
+              <div class="kicker">The fatigue timeline</div>
+              <div class="rule"></div>
+              <div class="timeline">
+                <div class="tl"><b>Password bought</b>
+                  <div class="small">Valid contractor credentials, likely from the dark web.</div>
+                </div>
+                <div class="tl"><b>1+ hour of push spam</b>
+                  <div class="small">Repeated MFA notifications, deny after deny.</div>
+                </div>
+                <div class="tl"><b>"Hi, Uber IT here"</b>
+                  <div class="small">WhatsApp social engineering → contractor approved one request.</div>
+                </div>
+              </div>
+            </div>
+            <div class="kicker rise" style="--d:3">Controls that beat fatigue</div>
+            <div class="fixes">
+              <div class="fix rise" style="--d:3"><span class="material-symbols-rounded"
+                  style="font-size:22px">pin</span>Number matching</div>
+              <div class="fix rise" style="--d:4"><span class="material-symbols-rounded"
+                  style="font-size:22px">timer</span>Push rate limits</div>
+              <div class="fix rise" style="--d:5"><span class="material-symbols-rounded"
+                  style="font-size:22px">key</span>FIDO2 security keys</div>
+              <div class="fix rise" style="--d:6"><span class="material-symbols-rounded"
+                  style="font-size:22px">flag</span>"Report this prompt"</div>
+            </div>
+            <div class="quote rise" style="--d:7">Lesson: controls must anticipate human behavior, not just technical
+              bypasses.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 06 · EQUIFAX + AIIMS ============ -->
+      <section class="slide" data-title="Case Studies: A Missed Patch. A Missed Recovery Plan."
+        data-icon="local_hospital" data-hook="aiims"
+        data-footer="Real incidents turn policy language into measurable business consequences."
+        data-say="Equifax had a 48-hour patch rule. The patch took… months." data-mood="alarmed"
+        data-notes="EQUIFAX 2017: Apache Struts patch released 7 March. Internal order: patch within 48h. One internet-facing portal stayed unpatched. Attackers in from mid-May, undetected ~76 days until 29 July. 147M people. Settlement at least $575M.&#10;&#10;AIIMS DELHI 2022: Ransomware on 23 Nov. Hospital IT down; staff ran OPD, labs, billing manually for ~2 weeks. Registered under cyberterrorism section of IT Act.&#10;&#10;Point: patch enforcement + tested recovery.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Case Studies: A Missed Patch. A Missed Recovery Plan.</div>
+          <div class="hud"><span class="sd r"></span>LESSONS · VERIFIED</div>
+        </div>
+        <div class="inner s6">
+          <div class="box blue tilt spot case-card rise" data-tilt="5">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="kicker">Equifax · 2017</div><span class="stamp bad">UNPATCHED</span>
+            </div>
+            <div class="h2" style="margin:0">Missed patch enforcement</div>
+            <div class="htl"><span class="fillbar"></span>
+              <div class="pt"><b>07 MAR</b>Struts patch released</div>
+              <div class="pt"><b>08 MAR</b>"Patch in 48 hrs" order</div>
+              <div class="pt bad"><b>13 MAY</b>Attackers get in</div>
+              <div class="pt bad"><b>29 JUL</b>Finally detected</div>
+            </div>
+            <div class="mini-stats">
+              <div class="stat">
+                <div class="v" data-count="147" data-suf="M">0</div>
+                <div class="l">People exposed</div>
+              </div>
+              <div class="stat">
+                <div class="v" data-count="575" data-pre="$" data-suf="M+">0</div>
+                <div class="l">Settlement</div>
+              </div>
+              <div class="stat">
+                <div class="v" data-count="76" data-suf="d">0</div>
+                <div class="l">Undetected</div>
+              </div>
+            </div>
+            <div class="box white" style="font-weight:800">Patch policy is meaningless without enforcement, ownership
+              and auditing.</div>
+          </div>
+          <div class="box orange tilt spot case-card rise" style="--d:2" data-tilt="5">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="kicker">AIIMS Delhi · 2022</div><span class="stamp bad"
+                style="transform:rotate(3deg)">RANSOMWARE</span>
+            </div>
+            <div class="h2" style="margin:0">Recovery is part of security</div>
+            <div class="board" id="aiims-board">
+              <div class="row"><span>▣ eHospital core</span><span class="st">ONLINE</span></div>
+              <div class="row"><span>▣ OPD registration</span><span class="st">ONLINE</span></div>
+              <div class="row"><span>▣ Lab reports</span><span class="st">ONLINE</span></div>
+              <div class="row"><span>▣ Billing</span><span class="st">ONLINE</span></div>
+              <div class="row"><span>▣ Appointments</span><span class="st">ONLINE</span></div>
+            </div>
+            <div class="mini-stats">
+              <div class="stat">
+                <div class="v">23 NOV</div>
+                <div class="l">Attack date</div>
+              </div>
+              <div class="stat">
+                <div class="v" data-count="2" data-pre="~" data-suf=" wks">0</div>
+                <div class="l">Manual care</div>
+              </div>
+              <div class="stat">
+                <div class="v">IT ACT</div>
+                <div class="l">Cyberterror section</div>
+              </div>
+            </div>
+            <div class="box white" style="font-weight:800">Availability depends on tested backups and a recovery plan
+              that exists <u>before</u> the incident.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 07 · PASSWORD DEMO ============ -->
+      <section class="slide" data-title="Live Demo: Does This Password Meet Policy?" data-icon="password"
+        data-hook="password" data-footer="For the live demo: test only sample credentials — never use a real password."
+        data-say="Type <b>Admin123</b>. I dare you." data-mood="idle"
+        data-notes="LIVE: type Admin123 → fails length + special char → NON-COMPLIANT.&#10;Then Secure@2026College! → all green → COMPLIANT.&#10;Then Password@123456! → COMPLIANT but warning: common pattern.&#10;&#10;Key point: policy compliance ≠ actual password strength. Nothing leaves the browser.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Live Demo: Does This Password Meet Policy?</div>
+          <div class="hud"><span class="sd"></span>DEMO MODE · SAFE · LOCAL ONLY</div>
+        </div>
+        <div class="inner s7">
+          <div class="box violet shadow rise">
+            <div class="kicker">Policy checklist · live</div>
+            <div class="rule w"></div>
+            <div class="policy-list" id="pw-policy">
+              <div class="pl" data-rule="len"><span class="bx"></span>Minimum 12 characters</div>
+              <div class="pl" data-rule="up"><span class="bx"></span>One uppercase letter</div>
+              <div class="pl" data-rule="low"><span class="bx"></span>One lowercase letter</div>
+              <div class="pl" data-rule="num"><span class="bx"></span>One number</div>
+              <div class="pl" data-rule="sym"><span class="bx"></span>One special character</div>
+            </div>
+            <div class="box orange" style="margin-top:16px;color:var(--ink)"><b>Important:</b> policy compliance ≠
+              actual password strength.</div>
+          </div>
+          <div class="box white shadow rise" style="--d:2">
+            <div class="kicker">Audit console</div>
+            <div class="pw-row" style="margin-top:10px">
+              <input class="pw-input" id="pw" type="password" placeholder="Try a sample password…" autocomplete="off"
+                spellcheck="false">
+              <button class="btn ghost" id="pw-eye" title="Show / hide"><span class="material-symbols-rounded"
+                  style="font-size:20px">visibility</span></button>
+              <button class="btn magnet" id="pw-audit">AUDIT</button>
+            </div>
+            <div class="presets">
+              <span class="chip preset" data-pw="Admin123">Admin123</span>
+              <span class="chip preset" data-pw="Secure@2026College!">Secure@2026College!</span>
+              <span class="chip preset" data-pw="Password@123456!">Password@123456!</span>
+              <span class="chip preset" data-pw="correct-Horse-battery-9">correct-Horse-battery-9</span>
+            </div>
+            <div class="meter5" id="pw-meter"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="audit-out">
+              <div>
+                <div class="kicker">Result</div>
+                <div class="big" id="pw-result">Waiting for input…</div>
+                <div style="font:700 12px var(--mono)" id="pw-entropy">≈ 0 bits of entropy</div>
+              </div>
+              <span class="stamp warn" id="pw-stamp">PENDING</span>
+            </div>
+            <div class="warnrow" id="pw-warn"><span class="material-symbols-rounded"
+                style="font-size:16px;vertical-align:middle;margin-right:4px">warning</span> Compliant — but contains a
+              common pattern (password / admin / 123 / year). It may appear in attacker wordlists.</div>
+            <div class="ex-table">
+              <div class="th">PASSWORD</div>
+              <div class="th">STATUS</div>
+              <div class="th">WHY</div>
+              <div class="clickable" data-pw="Admin123">Admin123</div>
+              <div style="color:#d83f52">NON-COMPLIANT</div>
+              <div>Fails length + special character</div>
+              <div class="clickable" data-pw="Secure@2026College!">Secure@2026College!</div>
+              <div style="color:#238c62">COMPLIANT</div>
+              <div>Meets every listed rule</div>
+              <div class="clickable" data-pw="Password@123456!">Password@123456!</div>
+              <div style="color:#238c62">COMPLIANT*</div>
+              <div>May still appear in wordlists</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 08 · PORT DEMO ============ -->
+      <section class="slide" data-title="Live Demo: Is This Port Reachable From Outside?" data-icon="terminal"
+        data-hook="port" data-footer="Demo-safe scope: localhost / your own authorized device only."
+        data-say="0.0.0.0 means <b>every</b> interface. That's the real attack surface." data-mood="idle"
+        data-notes="Run Get-NetTCPConnection -State Listen on your own machine (or show this replay).&#10;&#10;127.0.0.1 / ::1 = loopback, same machine only.&#10;0.0.0.0 / :: = wildcard, reachable from any interface → finding.&#10;&#10;Get-Process -Id <PID> → who owns it (nginx).&#10;Click 'Apply fix' → rebind to loopback + firewall rule → finding RESOLVED.&#10;&#10;Only scan systems you own or are authorized to test.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Live Demo: Is This Port Reachable From Outside?</div>
+          <div class="hud"><span class="sd o"></span>LOCALHOST · ONLY</div>
+        </div>
+        <div class="inner s8">
+          <div class="term rise">
+            <div class="term-bar"><span class="dot r"></span><span class="dot o"></span><span
+                class="dot g"></span><span>PowerShell — my-laptop (authorized)</span><button class="btn sm ghost"
+                id="term-copy" style="display:inline-flex;align-items:center;gap:4px"><span
+                  class="material-symbols-rounded" style="font-size:15px">content_copy</span> Copy cmd</button><button
+                class="btn sm" id="term-replay" style="display:inline-flex;align-items:center;gap:4px"><span
+                  class="material-symbols-rounded" style="font-size:15px">replay</span> Replay</button></div>
+            <div class="term-body" id="term"></div>
+          </div>
+          <div class="exp">
+            <div class="box white finding rise" style="--d:1">
+              <div>
+                <div class="kicker">Finding #1 · port 443</div>
+                <div class="h3" style="margin:4px 0 0">Wildcard listener</div>
+              </div><span class="stamp bad" id="port-status">OPEN · EXPOSED</span>
+            </div>
+            <div class="box orange tilt spot rise" style="--d:2">
+              <div class="kicker">127.0.0.1 · loopback</div>
+              <div class="rule"></div>
+              <div class="small">Accepts connections only from the <b>same machine</b>. Not exposed to the network.
+              </div>
+            </div>
+            <div class="box red tilt spot rise" style="--d:3">
+              <div class="kicker">0.0.0.0 · wildcard</div>
+              <div class="rule" style="background:var(--ink)"></div>
+              <div class="small">Accepts connections from <b>every reachable interface</b>. This is the real attack
+                surface.</div>
+            </div>
+            <div class="box violet tilt spot rise" style="--d:4">
+              <div class="kicker">Identify the owner</div>
+              <div class="rule" style="background:var(--ink)"></div>
+              <div class="small"><code>Get-Process -Id &lt;PID&gt;</code> tells you exactly which program owns the port.
+              </div>
+            </div>
+            <button class="btn green magnet rise" style="--d:5;display:inline-flex;align-items:center;gap:8px"
+              id="port-fix"><span class="material-symbols-rounded" style="font-size:18px">build</span> Apply fix: rebind
+              to 127.0.0.1 + firewall rule</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 09 · RISK ============ -->
+      <section class="slide" data-title="Risk Scoring & Treatment: From 20 Down to 10" data-icon="bar_chart"
+        data-hook="risk" data-footer="The goal is measurable reduction — not a claim of perfect security."
+        data-say="Flip on <b>MFA</b> and <b>Lockout</b>. Watch the 3D tower shrink from 20 to 10." data-mood="idle"
+        data-notes="Inherent risk: weak password, no MFA → Likelihood 4 × Impact 5 = 20 HIGH.&#10;&#10;Turn on MFA (−1 L) and Lockout (−1 L) → 2 × 5 = 10 MEDIUM. Backups reduce impact.&#10;&#10;Drag the 3D matrix to rotate it.&#10;&#10;Treatment options: Mitigate, Accept, Transfer, Avoid.&#10;Residual risk never hits zero: phishing, session hijacking, MFA fatigue remain.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Risk Scoring &amp; Treatment: From 20 Down to 10</div>
+          <div class="hud"><span class="sd o"></span>RISK ENGINE · RUNNING</div>
+        </div>
+        <div class="inner s9">
+          <div class="risk3d-wrap rise">
+            <div class="risk-label"><span class="chip"><i></i>3D RISK MATRIX · DRAG TO ROTATE</span></div>
+            <div class="risk-fallback" id="risk-fallback"></div>
+            <div class="three-host" id="risk3d"></div>
+            <div class="risk-legend"><span class="chip"><i></i>1–5 LOW</span><span class="chip warn"><i></i>6–14
+                MEDIUM</span><span class="chip bad"><i></i>15–25 HIGH</span><span class="chip"
+                style="background:var(--blue)">▼ RESIDUAL</span><span class="chip" style="background:var(--paper)">◯
+                INHERENT</span></div>
+          </div>
+          <div class="ctrls">
+            <div class="box white rise" style="--d:1;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+              <div class="kicker">Inherent risk · weak password, no MFA</div>
+              <label class="slider">Likelihood <input type="range" min="1" max="5" value="4" id="r-l"><output
+                  id="r-lo">4</output></label>
+              <label class="slider">Impact <input type="range" min="1" max="5" value="5" id="r-i"><output
+                  id="r-io">5</output></label>
+            </div>
+            <div class="switches rise" style="--d:2">
+              <div class="sw" data-ctl="mfa" id="sw-mfa">
+                <div>MFA<small>−1 likelihood</small></div><span class="track"></span>
+              </div>
+              <div class="sw" data-ctl="lock" id="sw-lock">
+                <div>Lockout<small>−1 likelihood</small></div><span class="track"></span>
+              </div>
+              <div class="sw" data-ctl="bak" id="sw-bak">
+                <div>Backups<small>−1 impact</small></div><span class="track"></span>
+              </div>
+            </div>
+            <div class="scorecard rise" style="--d:3">
+              <div class="score high" id="sc-in">
+                <div class="kicker">Inherent</div>
+                <div class="v" id="sc-in-v">20</div>
+                <div style="font:800 13px var(--mono)" id="sc-in-t">4 × 5 · HIGH</div>
+              </div>
+              <div class="score high" id="sc-re">
+                <div class="kicker">Residual</div>
+                <div class="v" id="sc-re-v">20</div>
+                <div style="font:800 13px var(--mono)" id="sc-re-t">4 × 5 · HIGH</div>
+              </div>
+            </div>
+            <div class="acc rise" style="--d:4" data-acc>
+              <div class="acc-item open"><button style="display:flex;align-items:center"><span
+                    class="material-symbols-rounded" style="font-size:18px;margin-right:8px">shield</span>
+                  MITIGATE</button>
+                <div class="ab">Reduce likelihood or impact: MFA, lockout, patching, backups.</div>
+              </div>
+              <div class="acc-item"><button style="display:flex;align-items:center"><span
+                    class="material-symbols-rounded" style="font-size:18px;margin-right:8px">check_circle</span>
+                  ACCEPT</button>
+                <div class="ab">Low-score legacy tool — document it, sign it off, review it.</div>
+              </div>
+              <div class="acc-item"><button style="display:flex;align-items:center"><span
+                    class="material-symbols-rounded" style="font-size:18px;margin-right:8px">description</span>
+                  TRANSFER</button>
+                <div class="ab">Cyber-insurance or contract the risk to a third party.</div>
+              </div>
+              <div class="acc-item"><button style="display:flex;align-items:center"><span
+                    class="material-symbols-rounded" style="font-size:18px;margin-right:8px">block</span> AVOID</button>
+                <div class="ab">Stop the activity — e.g. decommission the legacy VPN account.</div>
+              </div>
+            </div>
+            <div class="quote rise" style="--d:5;font-size:16px;padding:12px 18px">Residual risk remains: phishing,
+              session hijacking and MFA fatigue are still possible.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 10 · TAKEAWAY ============ -->
+      <section class="slide" data-title="Takeaway: Find It. Rank It. Reduce It. Verify It." data-icon="flag"
+        data-hook="takeaway"
+        data-footer="Security is not what the policy says — it is what the organization can enforce and verify."
+        data-say="That's the loop. Questions? Smash that button." data-mood="happy"
+        data-notes="Close: Find it → Rank it → Reduce it → Verify it. Then repeat.&#10;&#10;Write the rule. Test the rule. Measure the risk. Fix the gap. Test again.&#10;&#10;Click 'Questions?' for confetti.">
+        <div class="scan"></div>
+        <div class="windowbar">
+          <div class="dots"><span class="dot r"></span><span class="dot o"></span><span class="dot g"></span></div>
+          <div class="decktitle">Takeaway: Find It. Rank It. Reduce It. Verify It.</div>
+          <div class="hud"><span class="sd"></span>SECURITY LOOP · VERIFIED</div>
+        </div>
+        <div class="inner">
+          <div class="kicker rise">The security loop · never "done"</div>
+          <div class="take" id="take" style="margin-top:14px">
+            <div class="box blue tk tilt spot rise" style="--d:1"><span class="ico"><span
+                  class="material-symbols-rounded" style="font-size:48px">search</span></span>
+              <div class="kicker">Step 01</div>
+              <div class="h3">FIND IT</div>
+              <div class="small">Identify assets, threats and vulnerabilities before they become incidents.</div><span
+                class="arr">→</span>
+            </div>
+            <div class="box orange tk tilt spot rise" style="--d:2"><span class="ico"><span
+                  class="material-symbols-rounded" style="font-size:48px">analytics</span></span>
+              <div class="kicker">Step 02</div>
+              <div class="h3">RANK IT</div>
+              <div class="small">Score likelihood × impact so the most important risks move first.</div><span
+                class="arr">→</span>
+            </div>
+            <div class="box green tk tilt spot rise" style="--d:3"><span class="ico"><span
+                  class="material-symbols-rounded" style="font-size:48px">construction</span></span>
+              <div class="kicker">Step 03</div>
+              <div class="h3">REDUCE IT</div>
+              <div class="small">MFA, patching, backups and account hygiene lower the exposure.</div><span
+                class="arr">→</span>
+            </div>
+            <div class="box red tk tilt spot rise" style="--d:4"><span class="ico"><span
+                  class="material-symbols-rounded" style="font-size:48px">verified</span></span>
+              <div class="kicker">Step 04</div>
+              <div class="h3">VERIFY IT</div>
+              <div class="small">Test again. Evidence, not assumptions. Then loop back. ↺</div>
+            </div>
+          </div>
+          <div class="final-row">
+            <div class="final-line" data-split>Write the rule. Test the rule.|Measure the risk. Fix the gap.</div>
+            <button class="btn dark magnet pop"
+              style="--d:8;font-size:24px;padding:18px 28px;display:inline-flex;align-items:center;gap:10px"
+              id="btn-questions"><span class="material-symbols-rounded" style="font-size:28px">celebration</span>
+              Questions?</button>
+          </div>
+          <div class="sources">Sources: FTC (Equifax settlement, 2019) · US Senate testimony, J. Blount (Colonial, June
+            2021) · Uber security update (Sept 2022) · Govt. of India / MeitY statements (AIIMS, Dec 2022)</div>
+        </div>
+      </section>
+
+      <div class="progress"><i id="progress"></i></div>
+      <div class="deck-footer" id="deck-footer"></div>
+      <div class="counter" id="counter"><b>01</b> / 10</div>
+    </div>
+
+    <!-- mascot: "Patch" the security bot -->
+    <div class="bubble" id="bubble"></div>
+    <div class="mascot happy" id="mascot" title="Patch — click me">
+      <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#20221e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="60" cy="140" rx="38" ry="7" fill="#20221e" opacity=".2" stroke="none" />
+          <line x1="60" y1="30" x2="60" y2="16" />
+          <circle cx="60" cy="13" r="5" fill="#ff4f62">
+            <animate attributeName="fill" values="#ff4f62;#ffb83f;#ff4f62" dur="1.6s" repeatCount="indefinite" />
+          </circle>
+          <path d="M28 65 Q22 88 31 112 L50 127 L72 127 L91 112 Q99 89 92 65 Z" fill="#5848f7" />
+          <path d="M31 61 Q60 28 89 61 L86 86 Q77 67 60 67 Q43 67 34 86 Z" fill="#20221e" />
+          <path class="visor" d="M38 58 Q60 36 82 58 L79 84 Q71 70 60 70 Q49 70 41 84 Z" fill="#f3f0df" />
+          <g id="eyes">
+            <ellipse cx="49" cy="57" rx="3.8" ry="4.8" fill="#20221e" stroke="none" />
+            <ellipse cx="71" cy="57" rx="3.8" ry="4.8" fill="#20221e" stroke="none" />
+          </g>
+          <path id="mouth" d="M53 66 Q60 71 67 66" fill="none" />
+          <path d="M33 83 Q22 88 21 101" fill="none" id="armL" />
+          <path d="M87 83 Q98 90 99 101" fill="none" />
+          <path d="M45 98 L75 98 L82 127 L38 127 Z" fill="#080d19" />
+          <path d="M43 101 L77 101 L79 120 L41 120 Z" fill="#6fa7ff" />
+          <path d="M53 104 h14 v5 a7 7 0 0 1 -14 0 z" fill="#ffb83f" stroke-width="2.5" />
+          <circle cx="60" cy="116" r="3.5" fill="#45db9b" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- dock -->
+    <nav class="dock" id="dock" aria-label="Slides"></nav>
+  </main>
+
+  <!-- unscaled overlays -->
+  <canvas id="sparks"></canvas><canvas id="confetti"></canvas>
+  <div class="toasts" id="toasts"></div>
+  <div class="cmdk-ov" id="cmdk-ov">
+    <div class="cmdk"><input id="cmdk-in" placeholder="Jump to slide… (type to filter)">
+      <ul id="cmdk-list"></ul>
+      <div class="foot"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
+    </div>
+  </div>
+  <aside class="notes" id="notes">
+    <div class="kicker">Speaker notes · press N to close</div>
+    <div class="h3" id="notes-title"></div>
+    <div class="rule"></div>
+    <div class="nt" id="notes-body"></div>
+    <div style="margin-top:auto">
+      <div class="kicker">Elapsed</div>
+      <div class="timer" id="timer">00:00</div>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+
+  <!-- ===================== 3D SCENES (Three.js) ===================== -->
+  <script
+    type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+    const INK = 0x20221e;
+    const C = { blue: 0x6fa7ff, violet: 0x5848f7, green: 0x45db9b, red: 0xff4f62, orange: 0xffb83f, paper: 0xf3f0df, yellow: 0xffe77c, lilac: 0xe8c9fa, steel: 0xc9d3e0 };
+    document.body.classList.add('has3d');
+
+    // flat 3-step toon ramp → matches the flat poster theme
+    const ramp = (() => { const t = new THREE.DataTexture(new Uint8Array([110, 190, 255]), 3, 1, THREE.RedFormat); t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t; })();
+    const toon = c => new THREE.MeshToonMaterial({ color: c, gradientMap: ramp });
+    const inkMat = new THREE.MeshBasicMaterial({ color: INK, side: THREE.BackSide });
+    const outline = (mesh, s = 1.06) => { const o = new THREE.Mesh(mesh.geometry, inkMat); o.scale.setScalar(s); mesh.add(o); return mesh; };
+
+    function makeScene(host, fov = 32) {
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      host.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(fov, 1, .1, 100);
+      scene.add(new THREE.AmbientLight(0xffffff, 1.15));
+      const dl = new THREE.DirectionalLight(0xffffff, 1.7); dl.position.set(4, 8, 6); scene.add(dl);
+      const resize = () => {
+        const w = host.clientWidth, h = host.clientHeight; if (!w || !h) return;
+        renderer.setPixelRatio(Math.min(2.5, (devicePixelRatio || 1) * Math.max(1, window.__scale || 1)));
+        renderer.setSize(w, h, false); renderer.domElement.style.width = '100%'; renderer.domElement.style.height = '100%';
+        camera.aspect = w / h; camera.updateProjectionMatrix();
+      };
+      resize(); addEventListener('resize', resize);
+      const ptr = { x: 0, y: 0, down: false, dx: 0 };
+      host.addEventListener('pointermove', e => { const r = host.getBoundingClientRect(); ptr.x = (e.clientX - r.left) / r.width * 2 - 1; ptr.y = -((e.clientY - r.top) / r.height * 2 - 1); if (ptr.down) ptr.dx += e.movementX * .01; });
+      host.addEventListener('pointerdown', () => { ptr.down = true; host.style.cursor = 'grabbing'; });
+      addEventListener('pointerup', () => { ptr.down = false; host.style.cursor = ''; });
+      host.addEventListener('pointerleave', () => { ptr.x = 0; ptr.y = 0; });
+      return { renderer, scene, camera, resize, ptr, host };
+    }
+
+    function label(text, { size = 56, color = '#20221e', h = .45 } = {}) {
+      const c = document.createElement('canvas'), x = c.getContext('2d');
+      const font = `900 ${size}px Archivo, "Arial Narrow", Arial`;
+      x.font = font; const w = Math.ceil(x.measureText(text).width) + 20; c.width = w; c.height = size + 20;
+      x.font = font; x.fillStyle = color; x.textBaseline = 'middle'; x.fillText(text, 10, c.height / 2 + 3);
+      const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+      const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, depthWrite: false }));
+      s.scale.set(h * w / c.height, h, 1); return s;
+    }
+
+    /* ---------------- HERO: 3D padlock ---------------- */
+    const H = makeScene(document.getElementById('hero3d'), 30);
+    H.camera.position.set(0, .7, 11);
+    const lock = new THREE.Group(); lock.position.y = .2; H.scene.add(lock);
+    const body = outline(new THREE.Mesh(new RoundedBoxGeometry(2.7, 2.2, 1.15, 4, .2), toon(C.orange)), 1.05);
+    lock.add(body);
+    const plate = new THREE.Mesh(new RoundedBoxGeometry(1.7, 1.35, .12, 2, .05), toon(C.paper)); plate.position.z = .57; body.add(plate);
+    const black = new THREE.MeshBasicMaterial({ color: INK });
+    const kh = new THREE.Mesh(new THREE.CylinderGeometry(.22, .22, .14, 28), black); kh.rotation.x = Math.PI / 2; kh.position.set(0, .14, .66); body.add(kh);
+    const kh2 = new THREE.Mesh(new THREE.BoxGeometry(.15, .45, .14), black); kh2.position.set(0, -.15, .66); body.add(kh2);
+    // shackle (pivots on the left leg)
+    const R = .82, tube = .21;
+    const shackle = new THREE.Group(); shackle.position.set(-R, 0, 0); lock.add(shackle);
+    const steel = toon(C.steel);
+    const arc = new THREE.Mesh(new THREE.TorusGeometry(R, tube, 20, 48, Math.PI), steel); arc.position.set(R, 1.85, 0);
+    arc.add(new THREE.Mesh(new THREE.TorusGeometry(R, tube + .06, 20, 48, Math.PI), inkMat));
+    const legGeo = new THREE.CylinderGeometry(tube, tube, .8, 20), legOut = new THREE.CylinderGeometry(tube + .06, tube + .06, .8, 20);
+    [0, 2 * R].forEach(x => { const l = new THREE.Mesh(legGeo, steel); l.position.set(x, 1.45, 0); l.add(new THREE.Mesh(legOut, inkMat)); shackle.add(l); });
+    shackle.add(arc);
+    // shadow
+    const shadow = new THREE.Mesh(new THREE.CircleGeometry(1.9, 40), new THREE.MeshBasicMaterial({ color: INK, transparent: true, opacity: .18 }));
+    shadow.rotation.x = -Math.PI / 2; shadow.position.y = -2.1; H.scene.add(shadow);
+    // orbiting confetti shapes
+    const shapes = [];
+    [[new THREE.BoxGeometry(.55, .55, .55), C.blue], [new THREE.OctahedronGeometry(.4), C.green], [new THREE.IcosahedronGeometry(.36), C.red],
+    [new THREE.TorusGeometry(.3, .12, 12, 24), C.violet], [new THREE.BoxGeometry(.4, .4, .4), C.yellow], [new THREE.TetrahedronGeometry(.45), C.lilac],
+    [new THREE.OctahedronGeometry(.3), C.orange]].forEach(([g, c], i) => {
+      const m = outline(new THREE.Mesh(g, toon(c)), 1.12);
+      m.userData = { r: 3 + (i % 3) * .45, sp: .25 + i * .04, ph: i / 7 * Math.PI * 2, y: (i % 2 ? .8 : -.6) + (i % 3) * .3 };
+      H.scene.add(m); shapes.push(m);
+    });
+    let open = false; const ray = new THREE.Raycaster();
+    H.host.addEventListener('click', e => {
+      const r = H.host.getBoundingClientRect();
+      ray.setFromCamera({ x: (e.clientX - r.left) / r.width * 2 - 1, y: -((e.clientY - r.top) / r.height * 2 - 1) }, H.camera);
+      if (ray.intersectObject(lock, true).length) { open = !open; document.dispatchEvent(new CustomEvent('lock-toggle', { detail: open })); }
+    });
+
+    /* ---------------- RISK: 3D matrix ---------------- */
+    const RK = makeScene(document.getElementById('risk3d'), 28);
+    RK.camera.position.set(8.5, 9.5, 11); RK.camera.lookAt(0, .9, 0);
+    const grid = new THREE.Group(); RK.scene.add(grid);
+    const basePlate = outline(new THREE.Mesh(new RoundedBoxGeometry(7, .32, 7, 2, .08), toon(C.paper)), 1.03);
+    basePlate.position.y = -.16; grid.add(basePlate);
+    const cellGeo = new THREE.BoxGeometry(.98, 1, .98); cellGeo.translate(0, .5, 0);
+    const S = 1.2, cells = {};
+    const colorFor = s => s <= 5 ? C.green : s <= 14 ? C.orange : C.red;
+    const hFor = s => .18 + s / 25 * 3;
+    for (let L = 1; L <= 5; L++) for (let I = 1; I <= 5; I++) {
+      const s = L * I, mat = toon(colorFor(s));
+      const m = new THREE.Mesh(cellGeo, mat);
+      const o = new THREE.Mesh(cellGeo, inkMat); o.scale.set(1.08, 1.03, 1.08); m.add(o);
+      m.position.set((I - 3) * S, 0, (3 - L) * S); m.scale.y = .01;
+      m.userData = { s, target: hFor(s) }; grid.add(m); cells[L + '-' + I] = m;
+    }
+    for (let i = 1; i <= 5; i++) {
+      const a = label(String(i), { h: .42 }); a.position.set((i - 3) * S, .05, 3.75); grid.add(a);
+      const b = label(String(i), { h: .42 }); b.position.set(-3.75, .05, (3 - i) * S); grid.add(b);
+    }
+    const ix = label('IMPACT →', { h: .42 }); ix.position.set(0, .05, 4.45); grid.add(ix);
+    const lx = label('LIKELIHOOD →', { h: .42 }); lx.position.set(-4.55, .05, 0); grid.add(lx);
+    const marker = outline(new THREE.Mesh(new THREE.ConeGeometry(.32, .7, 4), toon(C.blue)), 1.12); marker.rotation.x = Math.PI; grid.add(marker);
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(.5, .08, 12, 40), new THREE.MeshBasicMaterial({ color: INK })); ring.rotation.x = Math.PI / 2; grid.add(ring);
+    const scoreTag = new THREE.Group(); grid.add(scoreTag);
+    let risk = window.SPRM?.risk || { L: 4, I: 5, rL: 4, rI: 5 };
+    function setTag() {
+      scoreTag.clear(); const s = risk.rL * risk.rI;
+      const t = label(`${risk.rL} × ${risk.rI} = ${s}`, { h: .5, color: '#20221e' }); scoreTag.add(t);
+    }
+    setTag();
+    document.addEventListener('riskchange', e => { risk = e.detail; setTag(); });
+
+    /* ---------------- render loop (only the visible slide) ---------------- */
+    const clock = new THREE.Clock(); let rot = 0;
+    function loop() {
+      requestAnimationFrame(loop);
+      const t = clock.getElapsedTime(), cur = window.SPRM ? window.SPRM.cur : 0;
+      if (cur === 0) {
+        lock.rotation.y += ((H.ptr.x * .7 + Math.sin(t * .6) * .3) - lock.rotation.y) * .06;
+        lock.rotation.x += ((-H.ptr.y * .3) - lock.rotation.x) * .06;
+        lock.position.y = .2 + Math.sin(t * 1.4) * .14;
+        shackle.position.y += ((open ? .7 : 0) - shackle.position.y) * .12;
+        shackle.rotation.y += ((open ? -1.3 : 0) - shackle.rotation.y) * .1;
+        body.material.color.setHex(open ? C.red : C.orange);
+        shadow.scale.setScalar(1 - Math.sin(t * 1.4) * .06);
+        shapes.forEach(m => { const u = m.userData, a = t * u.sp + u.ph; m.position.set(Math.cos(a) * u.r, u.y + Math.sin(t + u.ph) * .3, Math.sin(a) * u.r * .6 - .5); m.rotation.x += .01; m.rotation.y += .013; });
+        H.renderer.render(H.scene, H.camera);
+      }
+      if (cur === 8) {
+        rot += ((RK.ptr.dx + Math.sin(t * .35) * .22 + RK.ptr.x * .15) - rot) * .08;
+        grid.rotation.y = rot;
+        const key = risk.rL + '-' + risk.rI, inKey = risk.L + '-' + risk.I;
+        Object.entries(cells).forEach(([k, m]) => {
+          const sel = k === key, tgt = m.userData.target + (sel ? .55 + Math.sin(t * 3) * .12 : 0);
+          m.scale.y += (tgt - m.scale.y) * .1;
+          m.material.emissive.setHex(sel ? 0x2a2a2a : 0x000000);
+        });
+        const sc = cells[key], ic = cells[inKey];
+        marker.position.x += (sc.position.x - marker.position.x) * .15; marker.position.z += (sc.position.z - marker.position.z) * .15;
+        marker.position.y = sc.scale.y + .75 + Math.sin(t * 3) * .1; marker.rotation.y = t * 1.5;
+        scoreTag.position.set(marker.position.x, marker.position.y + .75, marker.position.z);
+        ring.visible = key !== inKey; ring.position.set(ic.position.x, ic.scale.y + .35, ic.position.z); ring.rotation.z = t * 2;
+        RK.renderer.render(RK.scene, RK.camera);
+      }
+    }
+    loop();
+    document.addEventListener('slidechange', () => { H.resize(); RK.resize(); });
+  </script>
+</body>
+
+</html>
